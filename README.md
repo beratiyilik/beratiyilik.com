@@ -1,2 +1,2 @@
 # beratiyilikcom
-personal website
+personal web page
