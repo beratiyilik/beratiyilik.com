@@ -43,12 +43,14 @@ jobs:
             host: ${{ secrets.REMOTE_HOST }}
             username: ${{ secrets.REMOTE_USER }}
             key: ${{ secrets.SERVER_SSH_KEY }}
+            script_stop: true
             script: |
-              echo it's begining.
+              echo "it's begining."
               whoami
               cd /var/www
               sudo systemctl stop nginx
+              sudo rm beratiyilik.com
               git clone https://github.com/beratiyilik/beratiyilik.com.git
               sudo systemctl restart nginx
-              echo it's done
+              echo "it's done"
 
