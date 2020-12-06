@@ -47,12 +47,19 @@ jobs:
             script: |
               echo "it's begining."
               whoami
-              ls -A
+              pwd
               cd /var/www
+              echo "after changing dir to /var/www"
+              pwd
+              ls -A
+              rm beratiyilik.com
+              echo "after removing beratiyilik.com"
+              pwd
               ls -A
               git clone https://github.com/beratiyilik/beratiyilik.com.git
-              ls -A
               cd /var/wwww/beratiyilik.com
+              echo "after deploy to beratiyilik.com"
+              pwd
               ls -A
               echo "it's done"
 
