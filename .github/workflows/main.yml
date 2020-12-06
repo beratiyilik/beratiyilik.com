@@ -47,10 +47,12 @@ jobs:
             script: |
               echo "it's begining."
               whoami
+              ls -A
               cd /var/www
-              sudo systemctl stop nginx
-              sudo rm beratiyilik.com
+              ls -A
               git clone https://github.com/beratiyilik/beratiyilik.com.git
-              sudo systemctl restart nginx
+              ls -A
+              cd /var/wwww/beratiyilik.com
+              ls -A
               echo "it's done"
 
