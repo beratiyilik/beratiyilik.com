@@ -37,26 +37,25 @@ jobs:
           echo Hello, there!,
           echo Deploying is triggered.
       
-      - name: Deploy to Server
+      - name: SSH Deploy
+        uses: easingthemes/ssh-deploy@v2.1.5
+        env:
+            REMOTE_HOST: ${{ secrets.HOST }}
+            REMOTE_USER: ${{ secrets.USERNAME }}
+            SSH_PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+            ARGS: "-rltgoDzvO --delete"
+            #SOURCE: "dist/"
+            TARGET: ${{ secrets.TARGET_DIRECTORY }}
+
+      - name: SSH Remote Commands
         uses: appleboy/ssh-action@master
         with:
             host: ${{ secrets.HOST }}
             username: ${{ secrets.USERNAME }}
-            key: ${{ secrets.KEY }}
+            key: ${{ secrets.PRIVATE_KEY }}
             script_stop: true
             script: |
               echo "it's begining."
               whoami
               pwd
               echo "it's done"
-      
-      - name: Deploy to Server 2
-        uses: easingthemes/ssh-deploy@v2.1.5
-        env:
-            REMOTE_HOST: ${{ secrets.HOST }}
-            REMOTE_USER: ${{ secrets.USERNAME }}
-            SSH_PRIVATE_KEY: ${{ secrets.KEY }}
-            ARGS: "-rltgoDzvO --delete"
-            #SOURCE: "dist/"
-            TARGET: "/var/www/beratiyilik.com"
-      
