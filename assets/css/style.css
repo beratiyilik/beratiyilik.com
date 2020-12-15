@@ -1,0 +1,7 @@
+.hide-and-seek {
+    visibility: hidden;
+}
+
+.footer:hover .hide-and-seek {
+    visibility: visible;
+}
