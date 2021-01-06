@@ -1,7 +1,38 @@
+/**************************************************/
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 1100ms;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+/**************************************************/
+
 .hide-and-seek {
     visibility: hidden;
 }
 
-.footer:hover .hide-and-seek {
+.footer > .hide-and-seek {
+    visibility: hidden;
+    opacity:0;
+    transition:visibility 0s linear 0.5s,opacity 0.5s linear;
+  }
+
+.footer:hover > .hide-and-seek {
     visibility: visible;
+    opacity:1;
+    transition-delay:0s;
 }
+
+/**************************************************/
