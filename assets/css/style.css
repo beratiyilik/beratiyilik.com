@@ -35,4 +35,9 @@
     transition-delay:0s;
 }
 
+.information-section {
+	display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 /**************************************************/
